@@ -1,0 +1,743 @@
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Thermoplastic Adhesives from Abifor</title>
+    <meta name="description" content="We develop and produce thermoplastic hot melt adhesives. Our products are distributed worldwide and are used in a wide variety of applications." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Adhesive, Thermoplastic, Hot melt, Abifor, Polymers, Powders, Webs, Nets, Films" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abiforBlue: {
+                            100: '#eef2f6',
+                            400: '#536b83', /* bluegrey-500 from raw HTML code */
+                            500: '#48568d', /* secondary blue gradients */
+                            800: '#0c1941', /* raw source rgba(12,25,65) */
+                            900: '#070f2b',
+                        },
+                        abiforRed: {
+                            500: '#f23657', /* Exact red from raw code #f23657 */
+                            600: '#b81839', /* cookie consent background red */
+                        },
+                        abiforCream: {
+                            400: '#faf9f6', /* #f8f9f6 */
+                            500: '#edebe4', /* bg-cream-500 from raw html page 3 */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['TT Norms Pro', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- AlpineJS for flawless lightweight interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        /* Exact color representation adjustments */
+        .text-bluegrey-500 { color: #536b83; }
+        .bg-cream-500 { background-color: #edebe4; }
+        .bg-blue-500 { background-color: #0c1941; }
+        
+        /* Direct translation of Abifor's custom curved divider overlay mask using css clip path */
+        .curve-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        /* Custom scrollbar matching original site experience */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #edebe4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #536b83;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f23657;
+        }
+        
+        /* Button & Link specific stylings matching abifor.com original look */
+        .btn-red {
+            background-color: #f23657;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1rem 1.75rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+        .btn-red:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-[#faf9f6] text-abiforBlue-800 flex flex-col min-h-screen font-sans" x-data="abiforApp()">
+
+    <!-- Top Blue Navigation Bar (Page 3-4) -->
+    <header id="pageheader" class="relative z-30 bg-abiforBlue-800 text-white border-b border-white/10">
+        <div class="max-w-[1440px] mx-auto w-full px-4 lg:px-8">
+            <div class="flex h-[5.9375rem] xl:h-[7.5rem] items-center justify-between relative text-white">
+                
+                <!-- Brand Identity -->
+                <a aria-label="Click here to go to the home page" class="block grow mb-0 xl:mb-[1.375rem] mx-4 xl:mx-0 h-[2.5rem] xl:h-[3.75rem] max-w-[12rem]" href="#">
+                    <div class="flex items-center space-x-3 h-full">
+                        <div class="h-10 w-10 flex-shrink-0 bg-abiforRed-500 flex items-center justify-center rounded">
+                            <svg class="h-6 w-6 text-white fill-current" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path d="m87 15.2h-9v24.9h9zm-57.4 24.9v-12.5c0-7.3-5.7-13.1-14.1-13.1" fill="#fff"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="text-white text-2xl font-extrabold tracking-tight leading-none">abifor</span>
+                            <span class="text-[9px] uppercase tracking-[0.25em] text-abiforBlue-400 font-semibold">adhesive technology</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Mega Navigation Bar (Page 6-9 of original source) -->
+                <nav class="hidden xl:flex items-center space-x-8 h-full pt-6">
+                    <!-- Dropdown 1: Adhesive Solutions -->
+                    <div class="relative h-full group" x-data="{ open: false }" @mouseover="open = true" @mouseleave="open = false">
+                        <a href="#product-range" class="border-b-4 hover:border-white font-bold inline-block pb-6 text-white transition whitespace-nowrap border-transparent">
+                            Adhesive solutions
+                        </a>
+                        <!-- Mega Menu Container -->
+                        <div x-show="open" class="absolute bg-abiforBlue-800/95 border border-white/10 top-full left-0 w-[550px] p-6 text-white shadow-2xl rounded-b-xl z-50 grid grid-cols-2 gap-6 transition duration-150">
+                            <div>
+                                <p class="mb-3 text-xs uppercase font-extrabold text-abiforRed-500 tracking-wider">Product Categories</p>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li><a href="#product-range" class="hover:text-abiforRed-500 block transition">Powder formulations</a></li>
+                                    <li><a href="#product-range" class="hover:text-abiforRed-500 block transition">Pellets & Compounds</a></li>
+                                    <li><a href="#product-range" class="hover:text-abiforRed-500 block transition">Webs & Nonwovens</a></li>
+                                    <li><a href="#product-range" class="hover:text-abiforRed-500 block transition">Nets & Solid Films</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="mb-3 text-xs uppercase font-extrabold text-abiforRed-500 tracking-wider">Application techniques</p>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li><a href="#expertise" class="hover:text-abiforRed-500 block transition">Coating</a></li>
+                                    <li><a href="#expertise" class="hover:text-abiforRed-500 block transition">Lamination & Bonding</a></li>
+                                    <li><a href="#expertise" class="hover:text-abiforRed-500 block transition">Thermoforming</a></li>
+                                    <li><a href="#expertise" class="hover:text-abiforRed-500 block transition">Contract production</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#expertise" class="border-b-4 hover:border-white font-bold inline-block pb-6 text-white transition whitespace-nowrap border-transparent">
+                        Expertise and testimonials
+                    </a>
+
+                    <a href="#distribution" class="border-b-4 hover:border-white font-bold inline-block pb-6 text-white transition whitespace-nowrap border-transparent">
+                        Distribution
+                    </a>
+
+                    <a href="#downloads" class="border-b-4 hover:border-white font-bold inline-block pb-6 text-white transition whitespace-nowrap border-transparent">
+                        Downloads
+                    </a>
+
+                    <a href="#about" class="border-b-4 hover:border-white font-bold inline-block pb-6 text-white transition whitespace-nowrap border-transparent">
+                        About Abifor
+                    </a>
+                </nav>
+
+                <!-- Search & Language Selection Header Actions (Page 4-5) -->
+                <div class="hidden xl:flex items-center space-x-6">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <a href="#contact" class="text-white hover:text-abiforRed-500 transition font-semibold">Contact</a>
+                        <span class="text-white/20">|</span>
+                        <a href="#jobs" class="text-white hover:text-abiforRed-500 transition font-semibold">Jobs</a>
+                    </div>
+
+                    <!-- Language Selector (Page 5) -->
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex items-center space-x-1 uppercase text-xs font-bold text-white hover:text-abiforRed-500 transition">
+                            <span>en</span>
+                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </button>
+                        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 bg-abiforBlue-800 border border-white/10 text-white rounded shadow-xl py-1 text-xs">
+                            <a href="#" class="block px-4 py-1 hover:bg-abiforBlue-500">de</a>
+                            <a href="#" class="block px-4 py-1 hover:bg-abiforBlue-500">en</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Mobile Burger Menu Button (Page 9) -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="xl:hidden text-white p-2 hover:text-abiforRed-500 transition" aria-label="Menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Sidebar (Page 24-27 of PDF) -->
+    <div x-show="mobileMenuOpen" class="fixed inset-0 bg-abiforBlue-800/95 z-50 xl:hidden overflow-y-auto" x-transition.opacity>
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                <span class="text-xl font-bold text-white uppercase tracking-wider">abifor menu</span>
+                <button @click="mobileMenuOpen = false" class="text-white hover:text-abiforRed-500">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="space-y-6 text-lg font-bold text-white">
+                <a href="#product-range" @click="mobileMenuOpen = false" class="block hover:text-abiforRed-500 transition">Adhesive Solutions</a>
+                <a href="#expertise" @click="mobileMenuOpen = false" class="block hover:text-abiforRed-500 transition">Expertise</a>
+                <a href="#distribution" @click="mobileMenuOpen = false" class="block hover:text-abiforRed-500 transition">Distribution</a>
+                <a href="#downloads" @click="mobileMenuOpen = false" class="block hover:text-abiforRed-500 transition">Downloads</a>
+                <a href="#about" @click="mobileMenuOpen = false" class="block hover:text-abiforRed-500 transition">About Abifor</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN HOMEPAGE WRAPPER -->
+    <main class="flex-grow">
+        
+        <!-- Large Hero Showcase Block with Abifor Exact Red Mask Curve (Page 10-11) -->
+        <section class="relative bg-abiforBlue-800 text-white min-h-[500px] xl:min-h-[700px] flex items-center overflow-hidden">
+            <!-- Background Image with original dark overlay (Page 10) -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80" 
+                     class="w-full h-full object-cover opacity-35 filter contrast-125" 
+                     alt="Thermoplastic application in action">
+                <div class="absolute inset-0 bg-gradient-to-r from-abiforBlue-800 via-abiforBlue-800/80 to-transparent"></div>
+            </div>
+
+            <div class="max-w-[1440px] mx-auto w-full px-6 lg:px-12 relative z-10 py-16">
+                <div class="max-w-2xl space-y-6">
+                    <h2 class="text-abiforRed-500 text-4xl lg:text-[5rem] font-bold leading-[1.1] tracking-tight">
+                        We bond what belongs together.
+                    </h2>
+                    <p class="text-lg lg:text-xl font-light text-slate-300 leading-relaxed">
+                        Abifor develops and produces thermoplastic hot melt adhesives. Specialists in a wide product range of high-performance custom formulations since 1957.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#enquiry-form" class="btn-red bg-abiforRed-500 text-white rounded hover:opacity-90">
+                            REQUEST SAMPLES
+                        </a>
+                        <a href="#product-range" class="border border-white/30 text-white hover:bg-white hover:text-abiforBlue-800 px-6 py-4 rounded uppercase text-sm font-bold tracking-wider transition">
+                            Explore range
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom diagonal separator matching visual -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 hidden lg:block">
+                <svg class="relative block w-full h-[120px] fill-[#faf9f6]" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                    <path d="M0,120 L1440,120 L1440,40 C1100,100 800,20 0,120 Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Company Pitch Details Section (Page 11) -->
+        <section class="py-16 lg:py-24 max-w-[1260px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Narrative Content -->
+                <div class="lg:col-span-8 space-y-6">
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-abiforBlue-800 leading-none">
+                        Abifor.<br>
+                        <span class="font-light text-[#536b83]">Thermoplastic adhesive solutions</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-slate-600 leading-relaxed font-light">
+                        Abifor develops and produces thermoplastic hot melt adhesives. We are specialists in a wide product range of adhesives in the form of powders, webs, nets and films that can be activated thermally.
+                    </p>
+                    
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        As an owner-managed company based in Zurich, we market our products worldwide and in numerous industries. Our manufacturing plant located in Southern Germany operates high-tech pelletizing and formulation lines providing exact-tolerance performance components.
+                    </p>
+                </div>
+
+                <!-- Right Side Quick Directives navigation block (Page 11) -->
+                <div class="lg:col-span-4 bg-abiforBlue-800 p-8 text-white rounded shadow-lg space-y-6">
+                    <p class="text-xl font-bold border-b border-white/10 pb-2">Direct to</p>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li>
+                            <a href="#product-range" class="flex items-center justify-between text-slate-300 hover:text-abiforRed-500 transition group">
+                                <span>Product range</span>
+                                <span class="bg-white/10 group-hover:bg-abiforRed-500 px-2 py-1 text-white rounded">→</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#expertise" class="flex items-center justify-between text-slate-300 hover:text-abiforRed-500 transition group">
+                                <span>Application techniques</span>
+                                <span class="bg-white/10 group-hover:bg-abiforRed-500 px-2 py-1 text-white rounded">→</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#expertise" class="flex items-center justify-between text-slate-300 hover:text-abiforRed-500 transition group">
+                                <span>Testimonials</span>
+                                <span class="bg-white/10 group-hover:bg-abiforRed-500 px-2 py-1 text-white rounded">→</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#distribution" class="flex items-center justify-between text-slate-300 hover:text-abiforRed-500 transition group">
+                                <span>Distribution</span>
+                                <span class="bg-white/10 group-hover:bg-abiforRed-500 px-2 py-1 text-white rounded">→</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Red Segment Bracket Divider SVG Replicating c287 block (Page 13) -->
+        <div class="flex items-center justify-center my-12">
+            <div class="w-[2.9375rem] text-abiforRed-500">
+                <svg viewBox="0 0 26 29" class="w-full h-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m18.4 0c3.3-.1 6.1 2.3 6.6 5.6.6 3.8-2.1 7.3-5.8 7.7l-4 .7c-1.5.3-2.6 1.7-2.5 3.2l.3 4.5c.3 3.8-2.5 7.2-6.3 7.3-3.3.1-6.1-2.3-6.6-5.6-.6-3.8 2.1-7.3 5.8-7.7l4-.7c1.5-.3 2.6-1.7 2.5-3.2l-.3-4.5c-.4-3.8 2.5-7.2 6.3-7.3z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Product range slider/carousel (Pages 13-17) -->
+        <section id="product-range" class="py-16 bg-[#edebe4] px-6 lg:px-12" x-data="productCarousel()">
+            <div class="max-w-[1260px] mx-auto">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12">
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl lg:text-4xl font-extrabold text-abiforBlue-800">Our product range</h2>
+                        <p class="text-slate-600 mt-2">We offer hot melt adhesives made from all thermoplastic polymers in all feasible media styles.</p>
+                    </div>
+                    
+                    <!-- Carousel Left/Right navigation buttons -->
+                    <div class="flex space-x-3 mt-6 lg:mt-0">
+                        <button @click="prev()" class="bg-white hover:bg-abiforRed-500 hover:text-white p-3 rounded-full transition shadow text-abiforBlue-800">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button @click="next()" class="bg-white hover:bg-abiforRed-500 hover:text-white p-3 rounded-full transition shadow text-abiforBlue-800">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Cards Horizontal Track -->
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out gap-6" 
+                         :style="'transform: translateX(-' + (currentIndex * (100 / itemsPerView)) + '%)'">
+                        
+                        <!-- 1. Powder formulation card -->
+                        <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-5 rounded-lg shadow-md border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded mb-4" alt="Schmelzkleber in Pulverform">
+                                <h3 class="text-xl font-bold text-abiforBlue-800 mb-2">Powder</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    We offer customized grain sizes and mixtures. Also equipped with premium flame retardant capabilities and cross-linking agents.
+                                </p>
+                            </div>
+                            <button @click="addToCart('Powder Class Adhesives')" class="mt-6 bg-abiforBlue-800 hover:bg-abiforRed-500 text-white text-xs font-bold py-3 px-4 rounded transition w-full uppercase tracking-wider">
+                                Add to Enquiry
+                            </button>
+                        </div>
+
+                        <!-- 2. Pellets card -->
+                        <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-5 rounded-lg shadow-md border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1590157159903-690623d9b0c3?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded mb-4" alt="Pellets">
+                                <h3 class="text-xl font-bold text-abiforBlue-800 mb-2">Pellets</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    We supply high quality pellets compounded strictly according to customer technical specifications. Flame-retarded versions available.
+                                </p>
+                            </div>
+                            <button @click="addToCart('Pellets / Compounds')" class="mt-6 bg-abiforBlue-800 hover:bg-abiforRed-500 text-white text-xs font-bold py-3 px-4 rounded transition w-full uppercase tracking-wider">
+                                Add to Enquiry
+                            </button>
+                        </div>
+
+                        <!-- 3. Webs card -->
+                        <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-5 rounded-lg shadow-md border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded mb-4" alt="Spinnvlies">
+                                <h3 class="text-xl font-bold text-abiforBlue-800 mb-2">Webs</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    We spin robust webs directly from target high-grade polymers. Available in various weight-per-square distributions and styles.
+                                </p>
+                            </div>
+                            <button @click="addToCart('Extruded Webs / Nonwovens')" class="mt-6 bg-abiforBlue-800 hover:bg-abiforRed-500 text-white text-xs font-bold py-3 px-4 rounded transition w-full uppercase tracking-wider">
+                                Add to Enquiry
+                            </button>
+                        </div>
+
+                        <!-- 4. Nets card -->
+                        <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-5 rounded-lg shadow-md border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded mb-4" alt="Netzform">
+                                <h3 class="text-xl font-bold text-abiforBlue-800 mb-2">Nets</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    We produce open, thin, structural networks with highly distinct ventilation properties. Highly uniform bond performance.
+                                </p>
+                            </div>
+                            <button @click="addToCart('Structural Mesh Nets')" class="mt-6 bg-abiforBlue-800 hover:bg-abiforRed-500 text-white text-xs font-bold py-3 px-4 rounded transition w-full uppercase tracking-wider">
+                                Add to Enquiry
+                            </button>
+                        </div>
+
+                        <!-- 5. Films card -->
+                        <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-5 rounded-lg shadow-md border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded mb-4" alt="Film">
+                                <h3 class="text-xl font-bold text-abiforBlue-800 mb-2">Films</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    Easy-to-apply solid hot-melt adhesive films available in varied micron thicknesses to yield consistent surface barriers.
+                                </p>
+                            </div>
+                            <button @click="addToCart('Solid Barrier Films')" class="mt-6 bg-abiforBlue-800 hover:bg-abiforRed-500 text-white text-xs font-bold py-3 px-4 rounded transition w-full uppercase tracking-wider">
+                                Add to Enquiry
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Red Segment Bracket Divider Replicating c288 block (Page 17) -->
+        <div class="flex items-center justify-center my-12">
+            <div class="w-[2.9375rem] text-abiforRed-500">
+                <svg viewBox="0 0 26 29" class="w-full h-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m18.4 0c3.3-.1 6.1 2.3 6.6 5.6.6 3.8-2.1 7.3-5.8 7.7l-4 .7c-1.5.3-2.6 1.7-2.5 3.2l.3 4.5c.3 3.8-2.5 7.2-6.3 7.3-3.3.1-6.1-2.3-6.6-5.6-.6-3.8 2.1-7.3 5.8-7.7l4-.7c1.5-.3 2.6-1.7 2.5-3.2l-.3-4.5c-.4-3.8 2.5-7.2 6.3-7.3z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Twin pull sections matching page 17-18 of raw PDF content -->
+        <section id="expertise" class="py-16 max-w-[1260px] mx-auto px-6 lg:px-12 space-y-24">
+            
+            <!-- block c30 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" 
+                         class="rounded shadow-xl object-cover w-full h-[400px]" 
+                         alt="abifor Expertise Microscope">
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <h3 class="text-3xl lg:text-5xl font-extrabold text-abiforBlue-800 leading-tight">
+                        <span class="font-light text-[#536b83] block">abifor</span>Expertise
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        We are the ideal partner—for finding a solution, industrial implementation or commercial and logistical processing. For a variety of sectors and a wide range of applications.
+                    </p>
+                    <a href="#enquiry-form" class="inline-flex items-center space-x-2 text-abiforRed-500 font-bold hover:opacity-80 transition">
+                        <span>More about our expertise</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- block c31 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-4 lg:order-1 order-2">
+                    <h3 class="text-3xl lg:text-5xl font-extrabold text-abiforBlue-800 leading-tight">
+                        <span class="font-light text-[#536b83] block">abifor</span>Portrait
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        We are an owner-managed company based in Switzerland. We have been developing thermoplastic adhesives since 1957. As a reliable partner and employer, we drive innovation and know-how.
+                    </p>
+                    <a href="#about" class="inline-flex items-center space-x-2 text-abiforRed-500 font-bold hover:opacity-80 transition">
+                        <span>Get to know us</span>
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="lg:col-span-5 lg:order-2 order-1">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" 
+                         class="rounded shadow-xl object-cover w-full h-[400px]" 
+                         alt="abifor Portrait Team">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Red Segment Bracket Divider Replicating c289 block (Page 18) -->
+        <div class="flex items-center justify-center my-12">
+            <div class="w-[2.9375rem] text-abiforRed-500">
+                <svg viewBox="0 0 26 29" class="w-full h-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m18.4 0c3.3-.1 6.1 2.3 6.6 5.6.6 3.8-2.1 7.3-5.8 7.7l-4 .7c-1.5.3-2.6 1.7-2.5 3.2l.3 4.5c.3 3.8-2.5 7.2-6.3 7.3-3.3.1-6.1-2.3-6.6-5.6-.6-3.8 2.1-7.3 5.8-7.7l4-.7c1.5-.3 2.6-1.7 2.5-3.2l-.3-4.5c-.4-3.8 2.5-7.2 6.3-7.3z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Global Distribution Network Selection lists (Page 20-21) -->
+        <section id="distribution" class="py-16 bg-[#edebe4] px-6 lg:px-12">
+            <div class="max-w-[1260px] mx-auto text-center space-y-6">
+                <span class="text-xs uppercase tracking-widest text-abiforRed-500 font-black">Global support</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-abiforBlue-800">Our International Presence</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm">
+                    Operating through structured distribution hubs, our logistical specialists offer high delivery assurance across global manufacturing pipelines.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 pt-6 text-sm font-semibold text-abiforBlue-800">
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">Europe</div>
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">North America</div>
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">South America</div>
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">Asia</div>
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200 col-span-2 md:col-span-1">Oceania</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sticky Bottom Right Enquiry Basket Cart drawer (Pages 21-22) -->
+    <div x-show="cart.length > 0" 
+         class="fixed bottom-6 right-6 max-w-sm w-full bg-abiforBlue-800 text-white rounded shadow-2xl z-40 overflow-hidden border border-white/10"
+         x-transition.scale>
+        <div class="p-4 bg-abiforBlue-900 flex items-center justify-between border-b border-white/5 cursor-pointer" @click="cartOpen = !cartOpen">
+            <div class="flex items-center space-x-3">
+                <span class="bg-abiforRed-500 text-white text-xs font-bold px-2.5 py-1 rounded-full animate-bounce" x-text="cart.length"></span>
+                <span class="text-xs uppercase font-extrabold tracking-widest">Enquiry Cart</span>
+            </div>
+            <button class="text-slate-300 hover:text-abiforRed-500">
+                <svg class="w-5 h-5 transition-transform" :class="cartOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+        </div>
+
+        <div x-show="cartOpen" class="p-4 space-y-3 max-h-[220px] overflow-y-auto">
+            <template x-for="item in cart" :key="item">
+                <div class="flex items-center justify-between text-xs bg-abiforBlue-900/60 p-2.5 rounded border border-white/5">
+                    <span x-text="item"></span>
+                    <button @click="removeFromCart(item)" class="text-slate-400 hover:text-abiforRed-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                </div>
+            </template>
+        </div>
+
+        <div x-show="cartOpen" class="p-4 bg-abiforBlue-900/90 border-t border-white/5 flex items-center justify-between">
+            <button @click="clearCart()" class="text-xs text-slate-400 hover:text-abiforRed-500">Clear List</button>
+            <a href="#enquiry-form" @click="cartOpen = false" class="bg-abiforRed-500 hover:opacity-90 px-4 py-2 rounded text-xs font-bold uppercase tracking-wider text-center">Request Now</a>
+        </div>
+    </div>
+
+    <!-- Powermail Replica Contact Request Enquiry Form (Page 22-24) -->
+    <section id="enquiry-form" class="py-16 max-w-[800px] mx-auto px-6">
+        <div class="bg-white p-8 rounded shadow-lg border border-slate-100">
+            <div class="mb-8 border-b border-slate-100 pb-4">
+                <span class="text-xs uppercase font-extrabold text-abiforRed-500 tracking-wider">Direct consultation</span>
+                <h3 class="text-2xl font-extrabold text-abiforBlue-800 mt-1">Send enquiry</h3>
+                <p class="text-xs text-[#536b83] mt-1">Submit your technical formulation specifications or request customized samples.</p>
+            </div>
+
+            <!-- Auto listing of items added to cart -->
+            <div x-show="cart.length > 0" class="mb-6 bg-abiforBlue-100 p-4 rounded border border-slate-200">
+                <p class="text-xs font-bold text-abiforBlue-800 mb-2 uppercase tracking-wide">Included Materials / Samples:</p>
+                <div class="flex flex-wrap gap-2">
+                    <template x-for="item in cart" :key="item">
+                        <span class="bg-white border border-slate-300 text-abiforBlue-800 text-[11px] font-bold px-3 py-1 rounded flex items-center space-x-2">
+                            <span x-text="item"></span>
+                            <button @click="removeFromCart(item)" class="text-abiforRed-500 hover:text-abiforRed-600 font-extrabold">×</button>
+                        </span>
+                    </template>
+                </div>
+            </div>
+
+            <form @submit.prevent="submitEnquiry()" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-[#536b83] mb-1.5">Firstname *</label>
+                        <input type="text" required x-model="formFields.firstname" class="w-full bg-[#faf9f6] border border-slate-200 rounded p-3 text-sm focus:border-abiforRed-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#536b83] mb-1.5">Surname *</label>
+                        <input type="text" required x-model="formFields.surname" class="w-full bg-[#faf9f6] border border-slate-200 rounded p-3 text-sm focus:border-abiforRed-500 outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#536b83] mb-1.5">Email address *</label>
+                    <input type="email" required x-model="formFields.email" class="w-full bg-[#faf9f6] border border-slate-200 rounded p-3 text-sm focus:border-abiforRed-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#536b83] mb-1.5">Telephone number *</label>
+                    <input type="text" required x-model="formFields.phone" class="w-full bg-[#faf9f6] border border-slate-200 rounded p-3 text-sm focus:border-abiforRed-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#536b83] mb-1.5">Application details / Notes</label>
+                    <textarea rows="4" x-model="formFields.notes" class="w-full bg-[#faf9f6] border border-slate-200 rounded p-3 text-sm focus:border-abiforRed-500 outline-none" placeholder="Details regarding bonding temperature, process speed, and target material components..."></textarea>
+                </div>
+
+                <!-- FriendlyCaptcha widget simulation (Page 23-24) -->
+                <div class="bg-[#edebe4] p-4 rounded flex items-center justify-between border border-slate-300">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" required id="friendly-check" class="h-4 w-4 text-abiforRed-500 rounded focus:ring-abiforRed-500">
+                        <label for="friendly-check" class="text-xs text-abiforBlue-800 font-bold cursor-pointer select-none">I verify this formulation request</label>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-widest text-[#536b83] font-black">Friendlychallenge</span>
+                </div>
+
+                <button type="submit" class="w-full bg-abiforRed-500 hover:opacity-95 text-white font-bold py-4 rounded text-xs uppercase tracking-widest transition">
+                    Request now
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Toast submission feedback notification -->
+    <div x-show="toastShow" 
+         class="fixed bottom-6 left-6 bg-emerald-600 text-white p-4 rounded shadow-2xl z-50 flex items-center space-x-3 max-w-sm"
+         x-transition.scale>
+        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div>
+            <p class="font-bold text-xs">Formulation Enquiry Submitted!</p>
+            <p class="text-[10px] text-emerald-100 mt-0.5">An Abifor application engineer will follow up with safety and technical data sheet docs.</p>
+        </div>
+    </div>
+
+    <!-- Page Footer exactly matching structure on page 18-21 -->
+    <footer id="pagefooter" class="bg-abiforBlue-800 text-white pt-12 border-b-[0.625rem] border-abiforRed-500 mt-auto">
+        <div class="max-w-[1260px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12">
+                
+                <!-- Left brand column -->
+                <div class="lg:col-span-3 space-y-4">
+                    <a class="block font-bold hover:text-abiforRed-500 text-[1.5rem] transition" href="#">abifor</a>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+                        At Abifor, we specialize in high-performance thermoplastic adhesive solutions for a variety of applications. We cement lasting bonds.
+                    </p>
+                </div>
+
+                <!-- HQ details (Page 19) -->
+                <div class="lg:col-span-3 space-y-3 text-xs">
+                    <p class="text-base font-bold text-slate-200">Headquarter</p>
+                    <p class="font-bold text-white">Abifor AG</p>
+                    <p class="text-slate-400">Giessenplatz 8<br>CH-8600 Dübendorf<br>Schweiz</p>
+                    <p class="pt-2 text-slate-300"><strong>Phone:</strong> +41 44 325 25 95</p>
+                    <p class="text-slate-300"><strong>Email:</strong> info@abifor.com</p>
+                </div>
+
+                <!-- Plant Germany details (Page 20) -->
+                <div class="lg:col-span-3 space-y-3 text-xs">
+                    <p class="text-base font-bold text-slate-200">Plant Germany</p>
+                    <p class="font-bold text-white">Abifor AG</p>
+                    <p class="text-slate-400">Industriegebiet Degernau<br>Untere Mühlewiesen 8<br>DE-79793 Wutöschingen<br>Deutschland</p>
+                    <p class="pt-2 text-slate-300"><strong>Phone:</strong> +49 7746 964 91 00</p>
+                    <p class="text-slate-300"><strong>Email:</strong> info@abifor.com</p>
+                </div>
+
+                <!-- Links / distribution regions (Page 20-21) -->
+                <div class="lg:col-span-3 space-y-3 text-xs">
+                    <p class="text-base font-bold text-slate-200">abifor Distribution</p>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#distribution" class="hover:text-abiforRed-500 transition block">Europe</a></li>
+                        <li><a href="#distribution" class="hover:text-abiforRed-500 transition block">North America</a></li>
+                        <li><a href="#distribution" class="hover:text-abiforRed-500 transition block">South America</a></li>
+                        <li><a href="#distribution" class="hover:text-abiforRed-500 transition block">Africa</a></li>
+                        <li><a href="#distribution" class="hover:text-abiforRed-500 transition block">Asia / Oceania</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Lower Footer terms column & Copyright (Page 21) -->
+            <div class="border-t border-white/10 py-6 text-center md:flex md:justify-between md:text-left text-xs text-slate-400 font-semibold">
+                <div class="mb-4 md:mb-0">abifor 2026</div>
+                <ul class="flex flex-wrap justify-center space-x-6">
+                    <li><a href="#" class="hover:text-abiforRed-500 transition">Legal Notice</a></li>
+                    <li><a href="#" class="hover:text-abiforRed-500 transition">Data Privacy</a></li>
+                    <li><a href="#" class="hover:text-abiforRed-500 transition">Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Scripts logic -->
+    <script>
+        function abiforApp() {
+            return {
+                mobileMenuOpen: false,
+                cart: [],
+                cartOpen: false,
+                toastShow: false,
+                formFields: {
+                    firstname: '',
+                    surname: '',
+                    email: '',
+                    phone: '',
+                    notes: ''
+                },
+                addToCart(itemName) {
+                    if (!this.cart.includes(itemName)) {
+                        this.cart.push(itemName);
+                    }
+                    this.cartOpen = true;
+                },
+                removeFromCart(itemName) {
+                    this.cart = this.cart.filter(item => item !== itemName);
+                },
+                clearCart() {
+                    this.cart = [];
+                    this.cartOpen = false;
+                },
+                submitEnquiry() {
+                    this.toastShow = true;
+                    this.clearCart();
+                    this.formFields = { firstname: '', surname: '', email: '', phone: '', notes: '' };
+                    setTimeout(() => {
+                        this.toastShow = false;
+                    }, 5000);
+                }
+            }
+        }
+
+        function productCarousel() {
+            return {
+                currentIndex: 0,
+                itemsPerView: 3,
+                init() {
+                    this.updateLayout();
+                    window.addEventListener('resize', () => this.updateLayout());
+                },
+                updateLayout() {
+                    if (window.innerWidth < 640) {
+                        this.itemsPerView = 1;
+                    } else if (window.innerWidth < 1024) {
+                        this.itemsPerView = 2;
+                    } else {
+                        this.itemsPerView = 3;
+                    }
+                },
+                next() {
+                    const totalProducts = 5;
+                    const limit = totalProducts - this.itemsPerView;
+                    if (this.currentIndex < limit) {
+                        this.currentIndex++;
+                    } else {
+                        this.currentIndex = 0;
+                    }
+                },
+                prev() {
+                    const totalProducts = 5;
+                    const limit = totalProducts - this.itemsPerView;
+                    if (this.currentIndex > 0) {
+                        this.currentIndex--;
+                    } else {
+                        this.currentIndex = limit;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
